@@ -1,7 +1,8 @@
 import { UserButton, useUser } from '@clerk/clerk-react'
 import React from 'react'
 import { Button } from './ui/button'
-import { User } from 'lucide-react';
+import { User } from 'lucide-react'
+// import { User } from './ui/user'
 
 function Header() {
     const {user , isSignedIn} = useUser();
