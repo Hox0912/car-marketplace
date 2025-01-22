@@ -3,6 +3,7 @@ import { Button } from './components/ui/button'
 import { SignInButton } from '@clerk/clerk-react'
 import Header from './components/header'
 import Hero from './components/Hero'
+import Category from './components/Category'
 
 function Home() {
   return (
@@ -10,7 +11,9 @@ function Home() {
 		{/* Header */}
 		<Header />
 		{/* Hero */}
-    <Hero />
+    	<Hero />
+		{/* Category */}
+		<Category />
     </div>
   )
 }
