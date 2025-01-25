@@ -38,13 +38,12 @@
             "label": "Snaga u KS",
             "name": "horsePower",
             "fieldType": "number",
-            "required": true,
             "column": 1,
             "icon": "FaBolt"
         },
         {
             "label": "Vrsta goriva",
-            "name": "type",
+            "name": "fuelType",
             "fieldType": "dropdown",
             "required": true,
             "options": ["Elektricni", "Hibrid", "Benzin", "Dizel"],
@@ -129,7 +128,6 @@
             "name": "driveType",
             "fieldType": "dropdown",
             "options": ["Prednji", "Zadnji", "4x4"],
-            "required": true,
             "column": 1,
             "icon": "FaRoad"
         },
@@ -167,9 +165,8 @@
         {
             "label": "Boja",
             "name": "color",
-            "fieldType": "checkbox",
+            "fieldType": "dropdown",
             "options": ["Bez", "Bijela", "Crna", "Crvena", "Bordo crvena", "Ljubicasta", "Narancasta", "Plava", "Roza", "Svijetlo plava", "Tamno plava", "siva", "Svijetlo siva", "Tamno siva", "Smeda", "Srebrna", "Zelena", "Svijetlo zelena", "Tamno zelena", "Zlatna", "Zuta"],
-            "required": true,
             "column": 2,
             "icon": "FaPalette"
         },
@@ -177,7 +174,6 @@
             "label": "Broj vrata",
             "name": "door",
             "fieldType": "number",
-            "required": true,
             "column": 1,
             "icon": "FaDoorClosed"
         },

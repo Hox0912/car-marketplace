@@ -8,7 +8,7 @@ import {
   } from "@/components/ui/select"
   
 
-function DropdownField({item}) {
+function DropdownField({item, handleInputChange}) {
   return (
     <div>
         <Select onValueChange={(value)=>handleInputChange(item.name, value)}
