@@ -2,6 +2,7 @@ import { UserButton, useUser } from '@clerk/clerk-react'
 import React from 'react'
 import { Button } from './ui/button'
 import { User } from 'lucide-react'
+import { Link } from 'react-router-dom'
 // import { User } from './ui/user'
 
 function Header() {
@@ -17,16 +18,17 @@ function Header() {
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Rabljeno</li>
         </ul>
 
-        <div className='ml-auto'>
-            {isSignedIn ? (
-                <div className='flex items-center gap-5'>
-                    <UserButton />
-                    <Button>Postavi Oglas</Button>
-                </div>
-            ) : (
-                <Button>Postavi Oglas</Button>
-            )}
-        </div>
+        {isSignedIn?
+            <div className='flex items-center gap-5'>
+                <UserButton />
+                <Link to={'/profile'}>
+                    <Button>Postavi oglas</Button>
+                </Link>
+            </div>
+            :
+            <Button>Postavi oglas</Button>
+        }I
+
     </div>
   )
 }

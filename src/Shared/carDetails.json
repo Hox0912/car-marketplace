@@ -1,0 +1,200 @@
+{
+    "carDetails": [
+        {
+            "label": "Naslov oglasa",
+            "name": "listingTitle",
+            "fieldType": "text",
+            "required": true,
+            "column": 2,
+            "icon": "FaClipboardList"
+        },
+        {
+            "label": "Cijena vozila",
+            "name": "sellingPrice",
+            "fieldType": "text",
+            "required": true,
+            "column": 1,
+            "icon": "FaMoneyBillAlt"
+        },
+        {
+            "label": "Kategorija",
+            "name": "category",
+            "fieldType": "dropdown",
+            "options": ["Limuzina", "SUV", "Truck", "Kombi", "Coupe", "Kabriolet", "Wagon", "Hatchback", "Crossover", "Luksuzan", "Sportski"],
+            "required": true,
+            "column": 1,
+            "icon": "FaCar"
+        },
+        {
+            "label": "Stanje",
+            "name": "condition",
+            "fieldType": "dropdown",
+            "required": true,
+            "options": ["Novo", "Rabljeno"],
+            "column": 1,
+            "icon": "FaCheckCircle"
+        },
+        {
+            "label": "Snaga u KS",
+            "name": "horsePower",
+            "fieldType": "number",
+            "required": true,
+            "column": 1,
+            "icon": "FaBolt"
+        },
+        {
+            "label": "Vrsta goriva",
+            "name": "type",
+            "fieldType": "dropdown",
+            "required": true,
+            "options": ["Elektricni", "Hibrid", "Benzin", "Dizel"],
+            "column": 1,
+            "icon": "FaChargingStation"
+        },
+        {
+            "label": "Proizvodjac",
+            "name": "make",
+            "fieldType": "dropdown",
+            "required": true,
+            "options": [
+                "Abarth",
+                "Alfa Romeo",
+                "Aston Martin",
+                "Audi",
+                "Bentley",
+                "BMW",
+                "Chevrolet",
+                "Citroen",
+                "Dacia",
+                "Dodge",
+                "Ferrari",
+                "Fiat",
+                "Ford",
+                "Honda",
+                "Hyundai",
+                "Infiniti",
+                "Jaguar",
+                "Jeep",
+                "Kia",
+                "Lada",
+                "Lamborghini",
+                "Lancia",
+                "Land Rover",
+                "Lexus",
+                "Maserati",
+                "Mazda",
+                "Mercedes-Benz",
+                "Mini",
+                "Mitsubishi",
+                "Nissan",
+                "Opel",
+                "Peugeot",
+                "Porsche",
+                "Renault",
+                "Rolls-Royce",
+                "Saab",
+                "Seat",
+                "Smart",
+                "Subaru",
+                "Suzuki",
+                "Skoda",
+                "Tesla",
+                "Toyota",
+                "VW",
+                "Volvo",
+                "Yugo",
+                "Zastava"
+            ],
+            "column": 1,
+            "icon": "FaIndustry"
+        },
+        {
+            "label": "Model",
+            "name": "model",
+            "fieldType": "text",
+            "required": true,
+            "column": 1,
+            "icon": "FaCarSide"
+        },
+        {
+            "label": "Godina proizvodnje",
+            "name": "year",
+            "fieldType": "number",
+            "required": true,
+            "column": 1,
+            "icon": "FaCalendarAlt"
+        },
+        {
+            "label": "Vrsta pogona",
+            "name": "driveType",
+            "fieldType": "dropdown",
+            "options": ["Prednji", "Zadnji", "4x4"],
+            "required": true,
+            "column": 1,
+            "icon": "FaRoad"
+        },
+        {
+            "label": "Mjenjac",
+            "name": "transmission",
+            "fieldType": "dropdown",
+            "options": ["Automatski", "Rucni"],
+            "required": true,
+            "column": 1,
+            "icon": "FaCogs"
+        },
+        {
+            "label": "Kilometraza",
+            "name": "kilometers",
+            "fieldType": "number",
+            "required": true,
+            "column": 1,
+            "icon": "FaTachometerAlt"
+        },
+        {
+            "label": "Velicina motora",
+            "name": "engineSize",
+            "fieldType": "text",
+            "column": 1,
+            "icon": "FaWrench"
+        },
+        {
+            "label": "Broj cilindara",
+            "name": "cylinder",
+            "fieldType": "number",
+            "column": 1,
+            "icon": "FaCircle"
+        },
+        {
+            "label": "Boja",
+            "name": "color",
+            "fieldType": "checkbox",
+            "options": ["Bez", "Bijela", "Crna", "Crvena", "Bordo crvena", "Ljubicasta", "Narancasta", "Plava", "Roza", "Svijetlo plava", "Tamno plava", "siva", "Svijetlo siva", "Tamno siva", "Smeda", "Srebrna", "Zelena", "Svijetlo zelena", "Tamno zelena", "Zlatna", "Zuta"],
+            "required": true,
+            "column": 2,
+            "icon": "FaPalette"
+        },
+        {
+            "label": "Broj vrata",
+            "name": "door",
+            "fieldType": "number",
+            "required": true,
+            "column": 1,
+            "icon": "FaDoorClosed"
+        },
+        {
+            "label": "VIN",
+            "name": "vin",
+            "fieldType": "text",
+            "column": 1,
+            "icon": "FaIdCard"
+        },
+        {
+            "label": "Opis oglasa",
+            "name": "listingDescription",
+            "fieldType": "textarea",
+            "required": true,
+            "column": 2,
+            "icon": "FaFileAlt"
+        }
+    ]
+}

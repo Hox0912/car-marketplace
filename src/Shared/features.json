@@ -1,0 +1,49 @@
+{
+    "features": [
+        {
+            "label": "Klima uredjaj",
+            "name": "airConditioner",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Kozna sjedala",
+            "name": "leatherSeats",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Panorama krov ili krovni prozor",
+            "name": "panoramicMoonroof",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Multimedija",
+            "name": "touchscreenDisplay",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Protuprovalna zastita",
+            "name": "antiLockBraking",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Pomoc pri kocenju / ABS",
+            "name": "brakeAssist",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Xenon svjetla",
+            "name": "xenonLights",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Parking senzori",
+            "name": "parkingSensors",
+            "fieldType": "checkbox"
+        },
+        {
+            "label": "Tempomat",
+            "name": "cruiseControl",
+            "fieldType": "checkbox"
+        }
+    ]
+}

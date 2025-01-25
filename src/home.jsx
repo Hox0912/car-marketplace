@@ -21,8 +21,9 @@ function Home() {
 		<MostSearchedCar />
 		{/* Info Section */}
 		<InfoSection />
-		{/* Footer */}
+		{/* Footer */} 
 		<Footer />
+		
     </div>
   )
 }
