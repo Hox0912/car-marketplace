@@ -2,20 +2,31 @@ import Header from '@/components/header'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import MyListing from './components/MyListing'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
 
 function Profile() {
   return (
     <div>
-        <Header />
-        <div className='px-10 md:px-20 my-10'>
-            <div className='flex justify-between items-center'>
-                <h2 className='font-bold text-4xl>'>Moji oglasi</h2>
-                <Link to={'/add-listing'}>
-                    <Button>+ Dodaj novi oglas</Button>
-                </Link>
-            </div>
-        </div>
-    </div>
+		<Header />
+		<div className='px-10 md:px-20 my-10'>
+		<Tabs defaultValue="my-listing" className="w-full">
+		<TabsList className="w-full flex justify-start">
+			<TabsTrigger value="my-listing">Moji oglasi</TabsTrigger>
+			<TabsTrigger value="inbox">Inbox</TabsTrigger>
+			<TabsTrigger value="profile">Nalog</TabsTrigger>
+
+		</TabsList>
+		<TabsContent value="my-listing">
+			<MyListing />
+		</TabsContent>
+		<TabsContent value="inbox">Inbox Tab</TabsContent>
+		<TabsContent value="profile">Profile Tab</TabsContent>
+		</Tabs>
+
+		</div>
+	</div>
   )
 }
 
