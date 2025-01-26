@@ -12,11 +12,20 @@ import { db } from './../../configs'
 import { CarListing } from './../../configs/schema'
 import TextAreaField from './components/TextAreaField'
 import IconField from './components/IconField'
+import UploadImages from './components/UploadImages'
+import { BiLoaderAlt} from 'react-icons/bi'
+import { useNavigate, useNavigation } from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react'
+import moment from 'moment'
 
 function AddListing() {
 
 	const [formData, setFormData]=useState([]);
 	const [featuresData,setFeaturesData]=useState([]);
+	const [triggerUploadImages, setTriggerUploadImages]=useState();
+	const[loader, setLoader]=useState(false);
+	const navigate=useNavigate();
+	const {user}=useUser();
 
 	const handleInputChange=(name, value)=>{
 		setFormData((prevData)=>({
@@ -38,23 +47,34 @@ function AddListing() {
 	}
 
 	const onSubmit=async(e)=>{
+		setLoader(true);
 		e.preventDefault();
 		console.log(formData);
+		//toast('Molimo Vas pricekajte...')
 
 		try {
 			const result=await db.insert(CarListing).values({
 				...formData,
-				features:featuresData
-			});
-
-			if(result) {
+				features:featuresData,
+				createdBy:user?.primaryEmailAddress?.emailAddress,
+				postedOn:moment().format('DD/MM/yyyy')
+			},
+		).returning({id:CarListing.id});
+			if(result) 
+			{
 				console.log("Data saved")
+				setTriggerUploadImages(result[0]?.id);
+				setLoader(false);
 			}
 		} catch(e) {
+			setLoader(false);
 			console.log("Error", e);
 		}
 		
 	}
+
+	
+
   return (
     <div>
 		<Header />
@@ -93,13 +113,21 @@ function AddListing() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> 
 			{/* Car Images */} 
+			<Separator className="my-6"/>
+			<UploadImages triggleUploadImages={triggerUploadImages}
+			setLoader={(v)=>{setLoader(v);navigate('/profile')}} />
 
 			<div className='mt-10 flex justify-end'>
-				<Button type="submit" onClick={(e)=>onSubmit(e)}>Objavi</Button>
+				<Button type="submit" 
+				disabled={loader}
+				onClick={(e)=>onSubmit(e)}>
+					{!loader?'Objavi':<BiLoaderAlt className='animate-spin text-lg'/>}
+					</Button>
 			</div>
 		</form>
+		
     </div>
   )
 }
