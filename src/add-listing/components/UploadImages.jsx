@@ -5,11 +5,23 @@ import React, {useEffect, useState} from 'react'
 import {IoMdCloseCircle} from 'react-icons/io'
 import { db } from './../../../configs';
 import { CarImages } from './../../../configs/schema';
+import { eq } from 'drizzle-orm';
 
-function UploadImages({triggleUploadImages, setLoader}) {
+function UploadImages({triggleUploadImages, setLoader, carInfo, mode}) {
 
     const [selectedFileList,setSelectedFileList]=useState([]);
-    
+    const [EditCarImageList, setEditCarImageList]=useState([]);
+
+    useEffect(()=>{
+        if(mode=='edit')
+        {
+            setEditCarImageList([]);
+            carInfo?.images?.map((image)=>{
+                setEditCarImageList((prev)=>[...prev,image?.imageUrl]);
+            })
+        }
+    },[carInfo])
+
     useEffect(()=>{
         if(triggleUploadImages)
         {
@@ -31,6 +43,13 @@ function UploadImages({triggleUploadImages, setLoader}) {
     const onImageRemove=(image,index)=>{
         const result=selectedFileList.filter((item)=>item!==image);
         setSelectedFileList(result);
+    }
+
+    const onImageRemoveFromDB=async(image,index)=>{
+        const result=await db.delete(CarImages).where(eq(CarImages.id,carInfo?.images[index].id)).returning({id:CarImages.id});
+
+        const imageList=EditCarImageList.filter(item=>item!=image);
+        setEditCarImageList(imageList);
     }
 
 
@@ -61,6 +80,18 @@ function UploadImages({triggleUploadImages, setLoader}) {
     <div>
         <h2 className='font-medium text-xl my-3'>Dodajte slike vozila</h2>
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5'>
+            
+            {mode=='edit'&&
+                EditCarImageList.map((image,index)=>(
+                    <div key={index}>
+                        <IoMdCloseCircle className='absolute m-2 text-lg text-white'
+                        onClick={()=>onImageRemoveFromDB(image,index)}
+                        />
+                        <img src={image} className='w-full h-[130px] object-cover rounded-xl' />
+                    </div>
+                ))
+            }
+            
             {selectedFileList.map((image,index)=>(
                 <div key={index}>
                     <IoMdCloseCircle className='absolute m-2 text-lg text-white'

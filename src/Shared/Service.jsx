@@ -2,8 +2,6 @@ const FormatResult=(resp)=> {
     let result=[];
     let finalResult=[];
 
-    console.log('FIRST API resp: ',resp);
-
     resp.forEach((item)=> {
         const listingId=item.carListing?.id;
         if(!result[listingId])
