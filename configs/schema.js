@@ -22,6 +22,8 @@ export const CarListing=pgTable('carListing', {
     listingDescription:varchar('listingDescription').notNull(),
     features:json('features'),
     createdBy:varchar('createdBy').notNull().default('mlgmaster912@gmail.com'),
+    userName:varchar('userName').notNull().default('Ivek'),
+    userImageUrl:varchar('userImageUrl').default('https://icons.veryicon.com/png/o/miscellaneous/standard/avatar-15.png'),
     postedOn:varchar('postedOn')
 })
 
