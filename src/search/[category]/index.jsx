@@ -15,7 +15,7 @@ function SearchByCategory() {
 
     useEffect(()=> {
         GetCarList();
-    },[])
+    },[category]);
 
     const GetCarList=async()=>{
         const result=await db.select().from(CarListing)
@@ -23,6 +23,7 @@ function SearchByCategory() {
         .where(eq(CarListing.category,category));
 
         const resp=Service.FormatResult(result);
+        //console.log("resp:",resp);
         setCarList(resp);
     }
 
@@ -30,7 +31,7 @@ function SearchByCategory() {
         <div>
             <Header/>
 
-            <div className='p-10 bg-black flex justify-center'>
+            <div className='p-16 bg-black flex justify-center'>
                 <Search/>
             </div>
             <div className='p-10 md:px-20'>
@@ -38,10 +39,10 @@ function SearchByCategory() {
             
                 {/* List of CarList */}
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-7'>
-                    {carList?.length>0? carList.map((item,index)=>{
-                        <div key={index}>
-                            <CarItem car={item} />
-                        </div>
+                    {carList?.length >0? carList.map((item,index)=>{
+                            <div key={index}>
+                                <CarItem car={item} />
+                            </div>
                     }):
                     [1,2,3,4,5,6].map((item,index)=>{
                         <div className='h-[250px] rounded-xl bg-slate-200 animate-pulse'>
@@ -50,7 +51,6 @@ function SearchByCategory() {
                     })
                     }
                 </div>
-                
             </div>
         </div>
     ) 
