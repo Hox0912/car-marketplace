@@ -1,3 +1,7 @@
+import axios from "axios";
+
+const SendBirdApplicationId=import.meta.VITE_SENDBIRD_APP_ID;
+const SendBirdApiToken=import.meta.VITE_SENDBIRD_API_TOKEN;
 const FormatResult=(resp)=> {
     let result=[];
     let finalResult=[];
@@ -29,6 +33,35 @@ const FormatResult=(resp)=> {
     return finalResult;
 }
 
+const CreateSendBirdUser=(userId, nickName, profileUrl)=>{
+    return axios.post('https://api-'+SendBirdApplicationId+'.sendbird.com/v3/users', {
+        user_id:userId,
+        nickname:nickName,
+        profile_url:profileUrl,
+        issue_access_token:false
+    }, {
+        headers: {
+            'Content-Type':'application/json',
+            'Api-token':SendBirdApiToken
+        }
+    });
+}
+
+const CreateSendBirdChannel=(users,title)=>{
+    return axios.post('https://api-'+SendBirdApplicationId+'.sendbird.com/v3/group_channels',{
+        user_ids:users,
+        is_distinct:true,
+        name:title,
+    },{
+        headers: {
+            'Content-Type':'application/json',
+            'Api-token':SendBirdApiToken
+        }
+    })
+}
+
 export default {
-    FormatResult
+    FormatResult,
+    CreateSendBirdUser,
+    CreateSendBirdChannel
 }
