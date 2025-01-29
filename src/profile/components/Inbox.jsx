@@ -4,7 +4,7 @@ import '@sendbird/uikit-react/dist/index.css';
 import { useUser } from '@clerk/clerk-react';
 import { GroupChannel } from '@sendbird/uikit-react/GroupChannel';
 import { GroupChannelList } from '@sendbird/uikit-react/GroupChannelList';
-import { channel } from 'diagnostics_channel';
+//import { channel } from 'diagnostics_channel';
 
 function Inbox() {
 

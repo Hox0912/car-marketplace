@@ -9,8 +9,9 @@ function Header() {
     const {user , isSignedIn} = useUser();
   return (
     <div className='flex justify-between items-center p-5 shadow-sm w-full'>
-        <img src='/logo.svg' width={150} height={150} alt='Logo'/> 
-
+        <Link to={'/'}>
+            <img src='/logo.svg' width={150} height={100} />
+        </Link>
         <ul className='flex-1 flex justify-center gap-16'>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Home</li>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Pretrazi</li>
